@@ -22,6 +22,16 @@ public class BhopListener extends PacketAdapter {
         super(plugin, ListenerPriority.HIGH, PacketType.Play.Client.POSITION);
         locationMap = new HashMap<>();
         bufferMap = new HashMap<>();
+
+        //just a notifier task for speed averages
+        plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, new Runnable(){
+            @Override
+            public void run() {
+                for(Player p : bufferMap.keySet()){
+                    p.sendMessage(bufferMap.get(p).average().toString());
+                }
+            }
+        }, 0L, 10L);
     }
 
     @Override
@@ -37,7 +47,6 @@ public class BhopListener extends PacketAdapter {
         if(locationMap.containsKey(p)) {
             Double vel = currentLoc.horizontalVelocityFrom(locationMap.get(p));
             bufferMap.get(p).add(vel);
-            System.out.println(bufferMap.get(p).average());
         }
         locationMap.put(p, currentLoc);
     }
