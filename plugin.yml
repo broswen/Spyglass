@@ -1,0 +1,6 @@
+name: Spyglass
+author: broswen
+version: 0.0.1
+main: com.broswen.spyglass.Spyglass
+api-version: 1.15
+depend: [ProtocolLib]

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Spyglass:jar">
+    <output-path>$USER_HOME$/Documents/BuildTools/server/plugins</output-path>
+    <root id="archive" name="Spyglass.jar">
+      <element id="module-output" name="Spyglass" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>
